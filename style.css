@@ -1,9 +1,16 @@
 body {
     display: flex;
     justify-content: center;
+    /*gap: 1px;*/
+
+}
+
+#resize {
+    /*padding-right: 10px;*/
 }
 
 #container {
+    /*margin: 0px auto;*/
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -11,6 +18,8 @@ body {
     height: 815px;
     border: black solid 1px;
     background-color: black;
+
+
 }
 
 #container div {
