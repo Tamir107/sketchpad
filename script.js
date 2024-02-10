@@ -8,6 +8,8 @@ let color = [255,255,255];
 function removeGrid(){
     while(container.lastChild)
         container.removeChild(container.lastChild);
+
+    color = [255,255,255];
 }
 
 function setGrid(){
