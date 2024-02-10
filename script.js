@@ -36,6 +36,10 @@ container.addEventListener("mouseover",(e) => {
 })
 resizeBtn.addEventListener("click", () => {
     cellsPerRow = prompt("Enter Grid Size");
+    if(cellsPerRow === null){
+        cellsPerRow = 16;
+        return;
+    }
     cellHeight = GRID_DIMENSIONS / cellsPerRow;
     removeGrid();
     setGrid();
