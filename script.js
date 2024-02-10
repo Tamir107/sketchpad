@@ -3,6 +3,7 @@ const resizeBtn = document.querySelector("#resize");
 const GRID_DIMENSIONS = 800;
 let cellsPerRow = 16;
 let cellHeight = GRID_DIMENSIONS / cellsPerRow;
+let color = [255,255,255];
 
 function removeGrid(){
     while(container.lastChild)
@@ -29,16 +30,24 @@ function buildGrid(){
     }
 }
 
+function rgb(values) {
+    return 'rgb(' + values.join(', ') + ')';
+}
 
 container.addEventListener("mouseover",(e) => {
     if(e.target.id === "container" || e.target.classList.contains("row")) return;
-    e.target.style.background = "red";
+    e.target.style.background = rgb(color);
+    if(color[0] !== 0)
+        color = color.map( num => num -= 10);
 })
+
 resizeBtn.addEventListener("click", () => {
     cellsPerRow = prompt("Enter Grid Size");
     if(cellsPerRow === null){
         cellsPerRow = 16;
         return;
+    }else if(cellsPerRow > 99){
+        cellsPerRow = prompt("Please enter a number below 100");
     }
     cellHeight = GRID_DIMENSIONS / cellsPerRow;
     removeGrid();
